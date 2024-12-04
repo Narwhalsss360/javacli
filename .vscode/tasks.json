@@ -22,11 +22,6 @@
             "label": "Build",
             "type": "shell",
             "command": "make build"
-        },
-        {
-            "label": "Generate help",
-            "type": "shell",
-            "command": "make help"
         }
     ]
 }
