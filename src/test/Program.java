@@ -23,8 +23,28 @@ public class Program {
             Program.class.getMethod("hello", new Class[] { String.class })
         );
 
+        String[] splitTests = new String[] {
+            "command a b c",
+            "command abc def ghi",
+            "command 1 2 3",
+            "command 123 456 789",
+            "command \"1 2\" 3",
+            "command 1 \"2 3\"",
+            "\"my command\" 1 \"2 3\""
+        };
+
+        for (String test : splitTests) {
+            String[] split = ArgumentParser.split(test);
+            System.out.print(test);
+            System.out.println(':');
+            for (String arg : split) {
+                System.out.println(arg);
+            }
+            System.out.println();
+        }
+
         addCommand.execute(
-            new String[] { "1", "2" },
+            ArgumentParser.split("1 2"),
             new ArgumentParser[] {
                 new ArgumentParser() {
                     public Class parses() {
@@ -56,7 +76,7 @@ public class Program {
         );
 
         helloCommand.execute(
-            new String[] { "First Last" },
+            ArgumentParser.split("\"First Last\""),
             new ArgumentParser[] {
                 new ArgumentParser() {
                     public Class parses() {
