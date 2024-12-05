@@ -89,12 +89,14 @@ public class CLI {
 
     public void run(InputStream in, PrintStream out, PrintStream err) {
         running = true;
-        while (running) {
-            try {
-                out.print('>');
-                execute(new Scanner(in).nextLine());
-            } catch (Exception exception) {
-                err.println(extractCauses(exception));
+        try (Scanner scanner = new Scanner(in)) {
+            while (running) {
+                try {
+                    out.print('>');
+                    execute(scanner.nextLine());
+                } catch (Exception exception) {
+                    err.println(extractCauses(exception));
+                }
             }
         }
     }
