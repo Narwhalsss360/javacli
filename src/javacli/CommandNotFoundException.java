@@ -1,3 +1,4 @@
 package javacli;
 
-public class CommandNotFoundException extends Exception {}
+public class CommandNotFoundException extends Exception {
+}

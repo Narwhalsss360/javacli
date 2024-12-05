@@ -1,10 +1,12 @@
 package javacli;
+
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
-import java.lang.reflect.InvocationTargetException;
 
 public class CommandMethod {
+
     public final Command info;
 
     public final Method method;

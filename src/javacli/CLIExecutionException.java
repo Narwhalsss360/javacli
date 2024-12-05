@@ -1,6 +1,7 @@
 package javacli;
 
 public class CLIExecutionException extends Exception {
+
     public CLIExecutionException(String errorMessage) {
         super(errorMessage);
     }

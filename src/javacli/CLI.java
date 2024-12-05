@@ -1,4 +1,5 @@
 package javacli;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +8,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 public class CLI {
+
     private CommandMethod[] commands = {};
 
     private ArgumentParser[] parsers = {};
