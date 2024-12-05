@@ -1,5 +1,4 @@
 package test;
-import java.util.Scanner;
 import javacli.*;
 
 public class Program {
@@ -49,7 +48,6 @@ public class Program {
     }
 
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        cli.run();
+        cli.execute(args);
     }
 }
