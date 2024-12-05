@@ -17,7 +17,7 @@ rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(su
 MAIN = $(MAIN_PACKAGE).$(MAIN_CLASS)
 ARCHIVE_FILE = $(MAIN_PACKAGE).jar
 SOURCES = $(call rwildcard,$(SOURCES_DIRECTORY),*.java)
-CLASSES = $(patsubst $(SOURCES_DIRECTORY)/%.java,%.class,$(SOURCES))
+CLASSES = $(patsubst bin/%,%,$(call rwildcard,$(BINARIES_DIRECTORY),*.class))
 
 # Platform specific functions
 rmdir_recursive = rmdir $1 /s /q
