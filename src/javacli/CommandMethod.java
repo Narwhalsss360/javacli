@@ -11,12 +11,16 @@ public class CommandMethod {
 
     private final Parameter[] parameters;
 
+    public static boolean isAnnotated(Method method) {
+        return method.getAnnotation(Command.class) != null;
+    }
+
     public static boolean isValidCommandMethod(Method method) {
-        if (method.getAnnotation(Command.class) == null) {
+        int modifiers = method.getModifiers();
+
+        if (!isAnnotated(method)) {
             return false;
         }
-
-        int modifiers = method.getModifiers();
 
         if (!Modifier.isStatic(modifiers)) {
             return false;
