@@ -4,7 +4,7 @@ import javacli.*;
 
 public class Program {
 
-    private static CLI cli = new CLI(Program.class, ArgumentParser.parsers());
+    private static final CLI cli = new CLI(Program.class, ArgumentParser.parsers());
 
     @Command(Name = "add", Description = "Add 2 numbers (a, b) together")
     public static void add(Float a, Float b) {

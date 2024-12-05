@@ -44,19 +44,23 @@ public interface ArgumentParser {
     static ArgumentParser[] parsers() {
         return new ArgumentParser[] {
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return String.class;
                 }
 
+                @Override
                 public Object parse(String arg) {
                     return arg;
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Byte.class;
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Byte.valueOf(arg);
@@ -66,10 +70,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Class.forPrimitiveName("byte");
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Byte.valueOf(arg);
@@ -79,10 +85,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Short.class;
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Short.valueOf(arg);
@@ -92,10 +100,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Class.forPrimitiveName("short");
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Short.valueOf(arg);
@@ -105,10 +115,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Integer.class;
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Integer.valueOf(arg);
@@ -118,10 +130,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Class.forPrimitiveName("int");
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Integer.valueOf(arg);
@@ -131,10 +145,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Long.class;
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Long.valueOf(arg);
@@ -144,10 +160,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Class.forPrimitiveName("long");
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Long.valueOf(arg);
@@ -157,10 +175,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Float.class;
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Float.valueOf(arg);
@@ -170,10 +190,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Class.forPrimitiveName("float");
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Float.valueOf(arg);
@@ -183,10 +205,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Double.class;
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Double.valueOf(arg);
@@ -196,10 +220,12 @@ public interface ArgumentParser {
                 }
             },
             new ArgumentParser() {
+                @Override
                 public Class parses() {
                     return Class.forPrimitiveName("double");
                 }
 
+                @Override
                 public Object parse(String arg) throws ArgumentParseException {
                     try {
                         return Double.valueOf(arg);

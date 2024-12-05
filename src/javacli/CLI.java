@@ -22,7 +22,6 @@ public class CLI {
                 try {
                     commandsList.add(new CommandMethod(method));
                 } catch (InvalidCommandMethodException exception) {
-                    continue;
                 }
             }
         }
