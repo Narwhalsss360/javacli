@@ -42,6 +42,40 @@ public class CommandMethod {
         parameters = method.getParameters();
     }
 
+    public String help() {
+        StringBuilder builder = new StringBuilder(info.Name());
+
+        if (!info.Description().equals("")) {
+            builder.append('\t');
+            builder.append(info.Description());
+        }
+
+        if (parameters.length == 0) {
+            return builder.toString();
+        }
+
+        builder.append(": ");
+        int required = info.Required() == -1 ? parameters.length : info.Required();
+        for (int i = 0; i < parameters.length; i++) {
+            builder.append('<');
+            if (parameters[i].isNamePresent()) {
+                builder.append(parameters[i].getName());
+            }
+            if (required <= i) {
+                builder.append('?');
+            }
+            builder.append(':');
+            builder.append(parameters[i].getType().getSimpleName());
+            builder.append('>');
+
+            if (i != parameters.length - 1) {
+                builder.append(' ');
+            }
+        }
+
+        return builder.toString();
+    }
+
     public void execute(String[] entries, ArgumentParser[] parsers) throws CommandExecutionException {
         Object[] args = new Object[parameters.length];
         int required = info.Required();
