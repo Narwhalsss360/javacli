@@ -1,0 +1,14 @@
+actions:
+  - action: delete
+    path: .vscode
+  - action: delete
+    path: Makefile
+  - action: delete
+    path: .gitignore
+  - action: move
+    source: src/javacli/*
+    destination: .
+  - action: delete
+    path: src
+  - action: delete
+    path: releasify.yaml
