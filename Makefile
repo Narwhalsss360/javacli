@@ -12,17 +12,25 @@ __FILE__ = $(abspath $(lastword $(MAKEFILE_LIST)))
 __PROJECT_DIRECTORY__ = $(dir $(__FILE__))
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
+# Platform specific functions
+ifeq ($(OS),Windows_NT)
+	q = "
+	rmdir_recursive = rmdir $1 /s /q
+	rm = del $1
+	null_redirect = nul
+else
+	q = '
+	rmdir_recursive = rm -rf $1
+	rm = rm $1
+	null_redirect = /dev/null
+endif
+
 # Generated
 
 MAIN = $(MAIN_PACKAGE).$(MAIN_CLASS)
 ARCHIVE_FILE = $(MAIN_PACKAGE).jar
-SOURCES = $(call rwildcard,$(SOURCES_DIRECTORY),*.java)
-CLASSES = $(patsubst bin/%,%,$(call rwildcard,$(BINARIES_DIRECTORY),*.class))
-
-# Platform specific functions
-rmdir_recursive = rmdir $1 /s /q
-rm = del $1
-null_redirect = nul
+SOURCES = $(patsubst %,$(q)%$(q),$(call rwildcard,$(SOURCES_DIRECTORY),*.java))
+CLASSES = $(patsubst bin/%,$(q)%$(q),$(call rwildcard,$(BINARIES_DIRECTORY),*.class))
 
 all: build
 
