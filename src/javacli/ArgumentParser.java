@@ -72,7 +72,7 @@ public interface ArgumentParser {
             new ArgumentParser() {
                 @Override
                 public Class parses() {
-                    return Class.forPrimitiveName("byte");
+                    return byte.class;
                 }
 
                 @Override
@@ -102,7 +102,7 @@ public interface ArgumentParser {
             new ArgumentParser() {
                 @Override
                 public Class parses() {
-                    return Class.forPrimitiveName("short");
+                    return short.class;
                 }
 
                 @Override
@@ -132,7 +132,7 @@ public interface ArgumentParser {
             new ArgumentParser() {
                 @Override
                 public Class parses() {
-                    return Class.forPrimitiveName("int");
+                    return int.class;
                 }
 
                 @Override
@@ -162,7 +162,7 @@ public interface ArgumentParser {
             new ArgumentParser() {
                 @Override
                 public Class parses() {
-                    return Class.forPrimitiveName("long");
+                    return long.class;
                 }
 
                 @Override
@@ -192,7 +192,7 @@ public interface ArgumentParser {
             new ArgumentParser() {
                 @Override
                 public Class parses() {
-                    return Class.forPrimitiveName("float");
+                    return float.class;
                 }
 
                 @Override
@@ -222,7 +222,7 @@ public interface ArgumentParser {
             new ArgumentParser() {
                 @Override
                 public Class parses() {
-                    return Class.forPrimitiveName("double");
+                    return double.class;
                 }
 
                 @Override
